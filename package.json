@@ -1,0 +1,23 @@
+{
+  "name": "web-bootcamp",
+  "version": "1.0.0",
+  "description": "Marvel Node JS Program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nickcom4/web-bootcamp.git"
+  },
+  "author": "NBaker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nickcom4/web-bootcamp/issues"
+  },
+  "homepage": "https://github.com/Nickcom4/web-bootcamp#readme",
+  "dependencies": {
+    "commander": "^2.12.2",
+    "marvel-api": "^1.1.0"
+  }
+}
