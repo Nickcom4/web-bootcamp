@@ -69,6 +69,8 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__containers_dashboard__ = __webpack_require__(1);
+
 class App {
   constructor() {
     document.body.style.background = 'url("/images/background.png") no-repeat center center fixed'
@@ -79,22 +81,96 @@ class App {
     document.body.style.backgroundAttachment = 'fixed'
 
     let content = document.getElementById('content')
+    content.append()
 
-    let title = document.createElement('h1')
-    title.style.color = '#dddddd'
-    title.append('Jarvis Web Project Title')
-    title.style.textAlign = 'center'
-    title.style.textDecoration = 'underline'
-
-    content.append(title)
-
+    let dashboard = new __WEBPACK_IMPORTED_MODULE_0__containers_dashboard__["a" /* default */]()
+    content.append(dashboard.getContent())
   }
+
 }
 /* harmony export (immutable) */ __webpack_exports__["default"] = App;
 
 
 let app = new App()
 window.app = app
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(2);
+
+class Dashboard {
+  constructor(){
+  }
+
+  getData(){
+
+  }
+
+  getContent(){
+    let container = document.createElement('div')
+    container.id = 'container'
+    
+        
+    let title = document.createElement('h1')
+    title.style.color = '#dddddd'
+    title.append('Jarvis Web Container Title')
+    title.style.textAlign = 'center'
+    title.style.textDecoration = 'underline'
+
+    //content.append(title)
+    container.appendChild(title)
+
+    let card1 = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
+      Name:'name placeholder',
+      Description:'description placeholder',
+      Image: 'image placeholder'
+    })
+    container.append(card1.getContent())
+  
+  return container
+
+  }
+
+  animate(){
+
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Dashboard;
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Card{
+  constructor(options){
+    this.options = options
+  }
+  getContent(){
+    let card = document.createElement('div')
+
+    card.classList.add('col-6')
+    card.style.height = '400px'
+    card.style.margin = '1%'
+    card.style.cursor = 'pointer'
+    card.style.boxShadow = '0px 0px 3px #888888'
+    card.style.borderWidth = '2px'
+    card.style.borderStyle = 'none'
+    card.style.borderColor = 'gold'
+    card.style.background  = 'rgba(0, 0, 0, 0.4)'
+    card.style.borderRadius = '25px'
+    
+  return card
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Card;
+
 
 
 /***/ })

@@ -1,3 +1,4 @@
+import Dashboard from './containers/dashboard'
 export default class App {
   constructor() {
     document.body.style.background = 'url("/images/background.png") no-repeat center center fixed'
@@ -8,16 +9,12 @@ export default class App {
     document.body.style.backgroundAttachment = 'fixed'
 
     let content = document.getElementById('content')
+    content.append()
 
-    let title = document.createElement('h1')
-    title.style.color = '#dddddd'
-    title.append('Jarvis Web Project Title')
-    title.style.textAlign = 'center'
-    title.style.textDecoration = 'underline'
-
-    content.append(title)
-
+    let dashboard = new Dashboard()
+    content.append(dashboard.getContent())
   }
+
 }
 
 let app = new App()
