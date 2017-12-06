@@ -5,7 +5,7 @@ export default class Card{
   getContent(){
     let card = document.createElement('div')
 
-    card.classList.add('col-6')
+    card.classList.add('col-3')
     card.style.height = '300px'
     card.style.margin = '1%'
     card.style.cursor = 'pointer'

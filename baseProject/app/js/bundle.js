@@ -114,6 +114,7 @@ class Dashboard {
     let container = document.createElement('div')
     container.id = 'container'
     
+    //create 'flex' container to hold content
         
     let title = document.createElement('h1')
     title.style.color = '#dddddd'
@@ -138,6 +139,14 @@ class Dashboard {
       image: 'image 2 placeholder'
     })
     container.append(card2.getContent())
+      
+    let card3 = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
+      name:'name placeholder 3',
+      description: 'description3 placeholder',
+      image: 'image 3 placeholder'
+    })
+    container.append(card3.getContent())
+
 
   return container
 
@@ -163,7 +172,7 @@ class Card{
   getContent(){
     let card = document.createElement('div')
 
-    card.classList.add('col-6')
+    card.classList.add('col-3')
     card.style.height = '300px'
     card.style.margin = '1%'
     card.style.cursor = 'pointer'

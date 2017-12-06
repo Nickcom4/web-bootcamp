@@ -11,6 +11,7 @@ export default class Dashboard {
     let container = document.createElement('div')
     container.id = 'container'
     
+    //create 'flex' container to hold content
         
     let title = document.createElement('h1')
     title.style.color = '#dddddd'
@@ -35,6 +36,14 @@ export default class Dashboard {
       image: 'image 2 placeholder'
     })
     container.append(card2.getContent())
+      
+    let card3 = new Card({
+      name:'name placeholder 3',
+      description: 'description3 placeholder',
+      image: 'image 3 placeholder'
+    })
+    container.append(card3.getContent())
+
 
   return container
 
