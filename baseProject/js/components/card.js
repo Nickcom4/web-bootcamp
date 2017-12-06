@@ -6,7 +6,7 @@ export default class Card{
     let card = document.createElement('div')
 
     card.classList.add('col-6')
-    card.style.height = '400px'
+    card.style.height = '300px'
     card.style.margin = '1%'
     card.style.cursor = 'pointer'
     card.style.boxShadow = '0px 0px 3px #888888'
@@ -15,6 +15,22 @@ export default class Card{
     card.style.borderColor = 'gold'
     card.style.background  = 'rgba(0, 0, 0, 0.4)'
     card.style.borderRadius = '25px'
+
+    //Create card header
+    let cardHeader = document.createElement('div')
+    cardHeader.style.height = '15%'
+
+    //-->Create card title
+    let headerTitle = document.createElement('div')
+    headerTitle.append(this.options.name)
+    headerTitle.style.textAlign = 'center'
+    headerTitle.style.color = '#dddddd'
+    cardHeader.append(headerTitle)
+    
+    card.append(cardHeader)
+    //Create card body
+    //-->Create card description
+    //-->Add card link
     
   return card
   }

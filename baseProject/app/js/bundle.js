@@ -125,12 +125,20 @@ class Dashboard {
     container.appendChild(title)
 
     let card1 = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
-      Name:'name placeholder',
-      Description:'description placeholder',
-      Image: 'image placeholder'
+      name:'name placeholder',
+      description:'description placeholder',
+      image: 'image placeholder'
     })
     container.append(card1.getContent())
   
+      
+    let card2 = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
+      name:'name placeholder 2',
+      description: 'description2 placeholder',
+      image: 'image 2 placeholder'
+    })
+    container.append(card2.getContent())
+
   return container
 
   }
@@ -156,7 +164,7 @@ class Card{
     let card = document.createElement('div')
 
     card.classList.add('col-6')
-    card.style.height = '400px'
+    card.style.height = '300px'
     card.style.margin = '1%'
     card.style.cursor = 'pointer'
     card.style.boxShadow = '0px 0px 3px #888888'
@@ -165,6 +173,22 @@ class Card{
     card.style.borderColor = 'gold'
     card.style.background  = 'rgba(0, 0, 0, 0.4)'
     card.style.borderRadius = '25px'
+
+    //Create card header
+    let cardHeader = document.createElement('div')
+    cardHeader.style.height = '15%'
+
+    //-->Create card title
+    let headerTitle = document.createElement('div')
+    headerTitle.append(this.options.name)
+    headerTitle.style.textAlign = 'center'
+    headerTitle.style.color = '#dddddd'
+    cardHeader.append(headerTitle)
+    
+    card.append(cardHeader)
+    //Create card body
+    //-->Create card description
+    //-->Add card link
     
   return card
   }

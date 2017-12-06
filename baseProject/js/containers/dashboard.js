@@ -22,12 +22,20 @@ export default class Dashboard {
     container.appendChild(title)
 
     let card1 = new Card({
-      Name:'name placeholder',
-      Description:'description placeholder',
-      Image: 'image placeholder'
+      name:'name placeholder',
+      description:'description placeholder',
+      image: 'image placeholder'
     })
     container.append(card1.getContent())
   
+      
+    let card2 = new Card({
+      name:'name placeholder 2',
+      description: 'description2 placeholder',
+      image: 'image 2 placeholder'
+    })
+    container.append(card2.getContent())
+
   return container
 
   }
