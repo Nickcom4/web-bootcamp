@@ -28,9 +28,35 @@ export default class Card{
     cardHeader.append(headerTitle)
     
     card.append(cardHeader)
+    
     //Create card body
-    //-->Create card description
-    //-->Add card link
+    let cardBody = document.createElement('div')
+    cardBody.style.height = '80%'
+    cardBody.style.display = 'flex'
+    cardBody.style.margin = 'auto'
+    
+    //Create image holder inside body
+    let imageContainer = document.createElement('div')
+    imageContainer.style.flex = '.5'
+    
+    //create image inside image holder - use 'img' tag
+    let cardImage = document.createElement('img')
+    cardImage.src = this.options.image
+    
+    imageContainer.append(cardImage)
+    cardBody.append(imageContainer)
+        
+    //Create description field inside body
+    let cardDescription = document.createElement('div')
+    cardDescription.style.flex = '1'
+    cardDescription.style.color = '#ffffff'
+    cardDescription.append(this.options.description)
+    
+    
+    cardBody.append(cardDescription)
+    card.append(cardBody)
+    //create footer inside card
+    //create hyperlink inside footer - use 'a' tag
     
   return card
   }
