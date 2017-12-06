@@ -31,7 +31,7 @@ export default class Card{
     
     //Create card body
     let cardBody = document.createElement('div')
-    cardBody.style.height = '80%'
+    cardBody.style.height = '75%'
     cardBody.style.display = 'flex'
     cardBody.style.margin = 'auto'
     
@@ -55,8 +55,20 @@ export default class Card{
     
     cardBody.append(cardDescription)
     card.append(cardBody)
+    
     //create footer inside card
+    let cardFooter = document.createElement('div')
+    cardFooter.style.height = '10%'
+    cardFooter.style.textAlign = 'right'
+//    cardFooter.style.display = 'flex'
+//    cardFooter.style.margin = 'auto'
+
     //create hyperlink inside footer - use 'a' tag
+    let cardLink = document.createElement('a')
+    cardLink.src = this.options.link
+
+    cardFooter.append(cardLink)
+    card.append(cardFooter)
     
   return card
   }

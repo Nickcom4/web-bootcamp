@@ -118,7 +118,7 @@ class Dashboard {
         
     let title = document.createElement('h1')
     title.style.color = '#dddddd'
-    title.append('Jarvis Web Container Title')
+    title.append("Nick's Project - baseline")
     title.style.textAlign = 'center'
     title.style.textDecoration = 'underline'
 
@@ -195,9 +195,47 @@ class Card{
     cardHeader.append(headerTitle)
     
     card.append(cardHeader)
+    
     //Create card body
-    //-->Create card description
-    //-->Add card link
+    let cardBody = document.createElement('div')
+    cardBody.style.height = '75%'
+    cardBody.style.display = 'flex'
+    cardBody.style.margin = 'auto'
+    
+    //Create image holder inside body
+    let imageContainer = document.createElement('div')
+    imageContainer.style.flex = '.5'
+    
+    //create image inside image holder - use 'img' tag
+    let cardImage = document.createElement('img')
+    cardImage.src = this.options.image
+    
+    imageContainer.append(cardImage)
+    cardBody.append(imageContainer)
+        
+    //Create description field inside body
+    let cardDescription = document.createElement('div')
+    cardDescription.style.flex = '1'
+    cardDescription.style.color = '#ffffff'
+    cardDescription.append(this.options.description)
+    
+    
+    cardBody.append(cardDescription)
+    card.append(cardBody)
+    
+    //create footer inside card
+    let cardFooter = document.createElement('div')
+    cardFooter.style.height = '10%'
+    cardFooter.style.textAlign = 'right'
+//    cardFooter.style.display = 'flex'
+//    cardFooter.style.margin = 'auto'
+
+    //create hyperlink inside footer - use 'a' tag
+    let cardLink = document.createElement('a')
+    cardLink.src = this.options.link
+
+    cardFooter.append(cardLink)
+    card.append(cardFooter)
     
   return card
   }

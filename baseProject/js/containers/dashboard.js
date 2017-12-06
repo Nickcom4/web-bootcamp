@@ -15,7 +15,7 @@ export default class Dashboard {
         
     let title = document.createElement('h1')
     title.style.color = '#dddddd'
-    title.append('Jarvis Web Container Title')
+    title.append("Nick's Project - baseline")
     title.style.textAlign = 'center'
     title.style.textDecoration = 'underline'
 
