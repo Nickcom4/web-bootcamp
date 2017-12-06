@@ -1,7 +1,7 @@
 {
-  "name": "jarvis-web",
+  "name": "baseProject",
   "version": "1.0.0",
-  "description": "Day 4 Project",
+  "description": "Baseline applicaiton from all Boot-Camp education to date.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --watch",
@@ -15,7 +15,8 @@
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
-    "moment": "^2.19.3"
+    "moment": "^2.19.3",
+    "mongodb": "2.2.30"
   },
   "devDependencies": {
     "webpack": "^3.9.1",
