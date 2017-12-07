@@ -22,7 +22,7 @@ class Marvel {
         let objResponse = obj.data
         console.log(objResponse)
         //errors occur with next line
-        console.log(JSON.parse(objResponse)[description])
+//        console.log(JSON.parse(objResponse)[description])
       })
       .fail(console.error)
       .done()
