@@ -18,8 +18,11 @@ class Marvel {
 
   lookupCharacter(name){
     marvel.characters.findByName(name)
-      .then((data) => {
-        console.log(data)//JSON.stringify(data, null, 2))
+      .then((obj) => {
+        let objResponse = obj.data
+        console.log(objResponse)
+        //errors occur with next line
+        console.log(JSON.parse(objResponse)[description])
       })
       .fail(console.error)
       .done()

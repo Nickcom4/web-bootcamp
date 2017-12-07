@@ -1,4 +1,5 @@
 import Card from '../components/card'
+import Marvel from '../components/marvelClass'
 export default class Dashboard {
   constructor(){
   }
@@ -11,7 +12,7 @@ export default class Dashboard {
     let container = document.createElement('div')
     container.id = 'container'
     
-    //create 'flex' container to hold content
+    //create 'flex' container to hold content???
         
     let title = document.createElement('h1')
     title.style.color = '#dddddd'
@@ -23,8 +24,12 @@ export default class Dashboard {
     container.appendChild(title)
 
     let card1 = new Card({
-      name:'name placeholder',
-      description:'description placeholder',
+      name       :'Hulk',
+      description: () => {
+        description.append(this.options.Description)
+//        return this.lookupCharacter(name).Description
+//        description.append(this.options)
+      },
       image: 'image placeholder'
     })
     container.append(card1.getContent())

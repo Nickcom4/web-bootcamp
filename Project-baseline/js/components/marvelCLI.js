@@ -1,6 +1,5 @@
-
 let program = require('commander')
-let Marvel = require('./classMarvel')
+let Marvel = require('./marvelClass')
 
 program
   .command('top2')
