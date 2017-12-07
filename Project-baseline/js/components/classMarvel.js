@@ -15,6 +15,15 @@ class Marvel {
       .fail(console.error)
       .done();
   }
+
+  lookupCharacter(name){
+    marvel.characters.findByName(name)
+      .then((data) => {
+        console.log(data)//JSON.stringify(data, null, 2))
+      })
+      .fail(console.error)
+      .done()
+  }
 }
 
 module.exports = Marvel
