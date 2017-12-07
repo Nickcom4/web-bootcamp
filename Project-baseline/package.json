@@ -12,9 +12,11 @@
   "author": "NBaker",
   "license": "MIT",
   "dependencies": {
+    "commander": "^2.12.2",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
+    "marvel-api": "^1.1.0",
     "moment": "^2.19.3",
     "mongodb": "2.2.30"
   },
