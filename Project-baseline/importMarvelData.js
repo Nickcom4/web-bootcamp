@@ -1,9 +1,10 @@
-let program = require('commander')
-let Marvel = require('./callMarvel')
+//let program = require('commander')
+//let Marvel = require('./js/components/marvel')
+let Marvel = require('./importMarvelData_class')
 
 let marvel = new Marvel()
 
-marvel.getData((arrayCharacters) => {
+marvel.importData((arrayCharacters) => {
   marvel.insertDocuments(arrayCharacters)
 })
 

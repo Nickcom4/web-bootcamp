@@ -1,13 +1,35 @@
 import Card from '../components/card'
 //import Marvel from '../components/marvelClass'
 import Marvel from '../components/marvel'
+
+let MongoClient = require('mongodb').MongoClient
+//MongoClient mongoClient = new MongoClient()
+
+
 export default class Dashboard {
   constructor(){
   }
 
-  getData(){
-
+  getData(searchByName){
+    let marvel = new Marvel()
+    let result = []
+    mongoClient.connect(this.url, (err, db) => {
+      if (err) throw err
+        let query = { name: '' }
+        query.name = searchByName
+        db.collection('characters').find(query).toArray((err, result) => {
+          if (err) throw err
+          console.log(result)
+          //callback && callback(result)
+         // console.log(JSON.stringify(result, null, 2))
+          //callback(JSON.stringify(result, null, 2))
+          //db.close()
+        })
+  //    return JSON.stringify(result, null, 2)
+    })
+    //return result
   }
+  
 
   getContent(){
     let container = document.createElement('div')
@@ -26,17 +48,22 @@ export default class Dashboard {
 
     let card1 = new Card({
       name       :'Hulk',
-//      description:'description here',
-      description : () => {
+      description:'description placeholder',
+//      description : () => {
 //        description.append(this.options.Description)
 //        return this.lookupCharacter(name).Description
 //        description.append(this.options)
 
-      let marvel = new Marvel()
-      marvel.getCharacters(name)
-      },
+//      let marvel = new Marvel()
+//      marvel.getCharacters(name)
+//        getData('hulk')
+//      },
       image: 'image placeholder'
     })
+//    let dashboard = new Dashboard()
+//    content.append(dashboard.getContent())
+    //let marvel = new Marvel()
+    //card1.description = marvel.getMongoData('Hulk')
     container.append(card1.getContent())
   
       

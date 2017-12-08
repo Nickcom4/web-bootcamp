@@ -10,7 +10,7 @@ class Marvel {
     this.url = 'mongodb://localhost:27017/MarvelData'
   }
 
-  getData(callback){ //callback here
+  importData(callback){ //callback here
     //For each character sourced from Marvel API
     //Create an object (of data) that pushes into
     //the array of characters

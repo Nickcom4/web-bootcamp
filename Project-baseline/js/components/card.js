@@ -41,7 +41,7 @@ export default class Card{
     
     //create image inside image holder - use 'img' tag
     let cardImage = document.createElement('img')
-    cardImage.src = this.options.image
+    cardImage.src = this.options.thumbnail
     
     imageContainer.append(cardImage)
     cardBody.append(imageContainer)
