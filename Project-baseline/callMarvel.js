@@ -16,7 +16,8 @@ class Marvel {
     //the array of characters
     let arrayCharacters = []
     let obj = {}
-    this.marvel.characters.findAll()
+    //fetch first 30 characters, beginning at character index 20
+    this.marvel.characters.findAll(30,20)
       .then((characters) => {
         characters.data.forEach((character) => {
         obj = {
@@ -52,17 +53,20 @@ class Marvel {
   }
 
   getMongoData(callback){
+    let result = []
     MongoClient.connect(this.url, (err, db) => {
-      if (!err){
+      if (err) throw err
         let query = { name: '' }
         query.name = callback
         db.collection('characters').find(query).toArray((err, result) => {
-          //callback(result)
-         // console.log(result)
-          db.close
+          if (err) throw err
+          //console.log(result)
+          //callback && callback(result)
+          console.log(JSON.stringify(result, null, 2))
+          //callback(JSON.stringify(result, null, 2))
+          db.close()
         })
-      }
-      else console.err
+      return JSON.stringify(result, null, 2)
     })
     //return result
   }
