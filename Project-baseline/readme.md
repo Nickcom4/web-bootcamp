@@ -1,4 +1,4 @@
-# Prerequistes
+# Prerequisites
 ## Import from Marvel-API to local MongoDB: MarvelData
 ```
 npm install
