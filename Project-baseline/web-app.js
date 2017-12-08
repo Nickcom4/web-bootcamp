@@ -13,7 +13,7 @@ let server = app.listen(app.get('port'), function() {
 let MongoClient = require('mongodb').MongoClient
  
 // Connection URL
-let url = 'mongodb://localhost:27017/comics'
+let url = 'mongodb://localhost:27017/MarvelData'
 // Use connect method to connect to the Server
 MongoClient.connect(url, (err, db) => {
   console.log("MongoDB is running on: %s", url)

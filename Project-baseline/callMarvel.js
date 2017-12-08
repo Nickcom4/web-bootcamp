@@ -29,10 +29,11 @@ class Marvel {
         arrayCharacters.push(obj)
        })
         //console.log(arrayCharacters)
-      })
       callback(arrayCharacters)
+      })
       //.fail(console.err)
-      //.done
+     // .done
+      return arrayCharacters
   }
 
   insertDocuments(docs){
@@ -49,5 +50,22 @@ class Marvel {
      }
     })
   }
+
+  getMongoData(callback){
+    MongoClient.connect(this.url, (err, db) => {
+      if (!err){
+        let query = { name: '' }
+        query.name = callback
+        db.collection('characters').find(query).toArray((err, result) => {
+          //callback(result)
+         // console.log(result)
+          db.close
+        })
+      }
+      else console.err
+    })
+    //return result
+  }
+    
 }
 module.exports = Marvel

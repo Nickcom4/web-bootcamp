@@ -17,7 +17,8 @@
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "marvel-api": "^1.1.0",
-    "moment": "^2.19.3"
+    "moment": "^2.19.3",
+    "mongodb": "2.2.30"
   },
   "devDependencies": {
     "webpack": "^3.9.1",
