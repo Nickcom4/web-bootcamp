@@ -3,6 +3,7 @@ let path = require('path')
 
 module.exports = {
   entry: './js/app.js',
+  target: 'node',
   output: {
     path: __dirname,
     filename: './app/js/bundle.js'
