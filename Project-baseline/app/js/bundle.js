@@ -71,20 +71,6 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__containers_dashboard__ = __webpack_require__(1);
 
-/*
-var MongoClient = require('mongodb').MongoClient
-  , assert = require('assert')
- 
-// Connection URL
-var url = 'mongodb://localhost:27017/comics'
-// Use connect method to connect to the Server
-MongoClient.connect(url, (err, db)=> {
-  assert.equal(null, err)
-  console.log("Connected correctly to server")
- 
-  db.close()
-})
-*/
 class App {
   constructor() {
     document.body.style.background = 'url("/images/background.png") no-repeat center center fixed'
@@ -115,8 +101,11 @@ window.app = app
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_marvel__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_marvel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_marvel__);
 
 //import Marvel from '../components/marvelClass'
+
 class Dashboard {
   constructor(){
   }
@@ -142,12 +131,15 @@ class Dashboard {
 
     let card1 = new __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]({
       name       :'Hulk',
-      description:'description here',
- //     description: () => {
+//      description:'description here',
+      description : () => {
 //        description.append(this.options.Description)
 //        return this.lookupCharacter(name).Description
 //        description.append(this.options)
-  //    },
+
+      let marvel = new __WEBPACK_IMPORTED_MODULE_1__components_marvel___default.a()
+      marvel.getCharacters(name)
+      },
       image: 'image placeholder'
     })
     container.append(card1.getContent())
@@ -192,7 +184,7 @@ class Card{
   getContent(){
     let card = document.createElement('div')
 
-    card.classList.add('col-3')
+    card.classList.add('col-6')
     card.style.height = '300px'
     card.style.margin = '1%'
     card.style.cursor = 'pointer'
@@ -262,6 +254,25 @@ class Card{
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Card;
 
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+//let mongoClient = require('mongod').MongoClient
+
+class Marvel {
+  constructor(){
+  }
+
+  getCharacters(){
+    db.characters.find(name)
+      .then(console.log)
+      .fail(console.error)
+      .done()
+  }
+}
 
 
 /***/ })

@@ -1,5 +1,6 @@
 import Card from '../components/card'
 //import Marvel from '../components/marvelClass'
+import Marvel from '../components/marvel'
 export default class Dashboard {
   constructor(){
   }
@@ -25,12 +26,15 @@ export default class Dashboard {
 
     let card1 = new Card({
       name       :'Hulk',
-      description:'description here',
- //     description: () => {
+//      description:'description here',
+      description : () => {
 //        description.append(this.options.Description)
 //        return this.lookupCharacter(name).Description
 //        description.append(this.options)
-  //    },
+
+      let marvel = new Marvel()
+      marvel.getCharacters(name)
+      },
       image: 'image placeholder'
     })
     container.append(card1.getContent())
