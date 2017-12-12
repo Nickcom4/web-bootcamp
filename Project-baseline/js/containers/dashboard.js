@@ -18,7 +18,7 @@ export default class Dashboard {
       //example: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText
       request.onload = () => {
         let data = JSON.parse(request.responseText)
-        console.log(data)
+        //console.log(data)
         resolve(data)
       }
 
