@@ -1,4 +1,4 @@
-import Dashboard from './containers/dashboard'
+import Dashboard from './containers/dashboard.js'
 
 export default class App {
   constructor() {
