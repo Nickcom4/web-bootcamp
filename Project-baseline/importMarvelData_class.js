@@ -17,24 +17,28 @@ class Marvel {
     let arrayCharacters = []
     let obj = {}
     //fetch first 30 characters, beginning at character index 20
-    this.marvel.characters.findAll(30,20)
-      .then((characters) => {
-        characters.data.forEach((character) => {
+    this.marvel.characters.findAll(30,20).then((characters) => {
+      //iCharacter is an individual character
+      characters.data.forEach((character) => {
         obj = {
           name        : character.name,
           description : character.description,
           thumbnail   : character.thumbnail.path + "." + character.thumbnail.extension,
-          //link        : character.urls
-          }
-        //console.log(obj)
+          link        : character.urls
+        }
+        character.urls.forEach((urlObject) => {
+          if(urlObject.type === 'detail') {
+            obj.link = urlObject.url
+          } 
+        })
         arrayCharacters.push(obj)
-       })
-        //console.log(arrayCharacters)
-      callback(arrayCharacters)
       })
-      //.fail(console.err)
-     // .done
-      return arrayCharacters
+      console.log(arrayCharacters)
+      callback(arrayCharacters)
+    })
+    .fail(console.err)
+    .done
+    return arrayCharacters
   }
 
   insertDocuments(docs){
