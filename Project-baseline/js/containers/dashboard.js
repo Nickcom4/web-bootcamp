@@ -1,6 +1,6 @@
 import Card from '../components/card'
 //import Marvel from '../components/marvelClass'
-import Marvel from '../components/marvel2'
+//import Marvel from '../components/marvel'
 
 //let MongoClient = require('mongodb').MongoClient
 //MongoClient mongoClient = new MongoClient()
@@ -10,28 +10,24 @@ export default class Dashboard {
   constructor(){
   }
 
-  getData(searchByName){
-    let marvel = new Marvel()
-    let result = []
-    mongoClient.connect(this.url, (err, db) => {
-      if (err) throw err
-        let query = { name: '' }
-        query.name = searchByName
-        db.collection('characters').find(query).toArray((err, result) => {
-          if (err) throw err
-          console.log(result)
-          //callback && callback(result)
-         // console.log(JSON.stringify(result, null, 2))
-          //callback(JSON.stringify(result, null, 2))
-          //db.close()
-        })
-  //    return JSON.stringify(result, null, 2)
+  getData(){
+    //pull data from MarvelData on local Mongo server
+    let promise = new Promise((resolve, reject) => {
+      let data = [
+        {
+          name: 'Nick',
+          description: 'Servant of The King Most High',
+          thumbnail: 'https://cdn.shopify.com/s/files/1/0387/7073/files/Tree-of-life-spring_large.jpg?18148057159891282181',
+          link: 'https://www.google.com',
+          linkText: 'Click here for more info'
+        }
+      ]
+      resolve(data)
     })
-    //return result
+    return(promise)
   }
-  
 
-  getContent(){
+  getContent(data){
     let container = document.createElement('div')
     container.id = 'container'
     
@@ -39,57 +35,26 @@ export default class Dashboard {
         
     let title = document.createElement('h1')
     title.style.color = '#dddddd'
-    title.append("Nick's Project - baseline")
     title.style.textAlign = 'center'
     title.style.textDecoration = 'underline'
 
+    title.append("Nick's Project - baseline")
+    
     //content.append(title)
     container.appendChild(title)
 
-    let characterName = 'Hulk'
-    let marvel = new Marvel()
-    let card1 = new Card({
-      name       : marvel.getMongoData(characterName).name,
-      description: marvel.getData(characterName).description,
-      thumbnail  : marvel.getData(characterName).thumbnail
+    //Open each object in db
+    data.forEach((item) => {
+      //create new card for each object
+      let characterCard = new Card(item)
+      //execute getContent in Card class to pull data onto card
+      //add new card to container of dashboard
+      container.append(characterCard.getContent())
     })
-//      description:'description placeholder',
-//      description : () => {
-//        description.append(this.options.Description)
-//        return this.lookupCharacter(name).Description
-//        description.append(this.options)
 
-//      let marvel = new Marvel()
-//      marvel.getCharacters(name)
-//        getData('hulk')
-//      },
-//      image: 'image placeholder'
-//    )
-//    let dashboard = new Dashboard()
-//    content.append(dashboard.getContent())
-    //let marvel = new Marvel()
-    //card1.description = marvel.getMongoData('Hulk')
-    container.append(card1.getContent())
-  
-      
-    let card2 = new Card({
-      name:'name placeholder 2',
-      description: 'description2 placeholder',
-      image: 'image 2 placeholder'
-    })
-    container.append(card2.getContent())
-      
-    let card3 = new Card({
-      name:'name placeholder 3',
-      description: 'description3 placeholder',
-      image: 'image 3 placeholder'
-    })
-    container.append(card3.getContent())
+    return container
 
-
-  return container
-
-  }
+    }
 
   animate(){
 
