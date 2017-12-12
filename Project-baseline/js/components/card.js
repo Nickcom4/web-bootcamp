@@ -8,7 +8,7 @@ export default class Card{
     card.classList.add('col-6')
     card.style.height = '300px'
     card.style.margin = '1%'
-    card.style.cursor = 'pointer'
+    //card.style.cursor = 'pointer'
     card.style.boxShadow = '0px 0px 3px #888888'
     card.style.borderWidth = '2px'
     card.style.borderStyle = 'none'
@@ -42,7 +42,7 @@ export default class Card{
     //create image inside image holder - use 'img' tag
     let cardImage = document.createElement('img')
     cardImage.src = this.options.thumbnail
-    
+    cardImage.style.width = '150px' 
     imageContainer.append(cardImage)
     cardBody.append(imageContainer)
         
@@ -65,7 +65,9 @@ export default class Card{
 
     //create hyperlink inside footer - use 'a' tag
     let cardLink = document.createElement('a')
-    cardLink.src = this.options.link
+    cardLink.href = this.options.link
+    cardLink.append(this.options.linkText)
+    cardLink.style.color = '#bbbbbb'
 
     cardFooter.append(cardLink)
     card.append(cardFooter)
