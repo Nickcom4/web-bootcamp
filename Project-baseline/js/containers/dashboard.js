@@ -12,18 +12,20 @@ export default class Dashboard {
 
   getData(){
     //pull data from MarvelData on local Mongo server
+    //example: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
     let promise = new Promise((resolve, reject) => {
-      let data = [
-        {
-          name: 'Nick',
-          description: 'Servant of The King Most High',
-          thumbnail: 'https://cdn.shopify.com/s/files/1/0387/7073/files/Tree-of-life-spring_large.jpg?18148057159891282181',
-          link: 'https://www.google.com',
-          linkText: 'Click here for more info'
-        }
-      ]
-      resolve(data)
+      const request = new XMLHttpRequest()
+      //example: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText
+      request.onload = () => {
+        let data = JSON.parse(request.responseText)
+        console.log(data)
+        resolve(data)
+      }
+
+      request.open('GET', 'http://localhost:3000/characters')
+      request.send()
     })
+
     return(promise)
   }
 
