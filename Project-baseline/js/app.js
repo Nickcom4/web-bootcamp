@@ -1,4 +1,5 @@
 import Dashboard from './containers/dashboard'
+
 export default class App {
   constructor() {
     document.body.style.background = 'url("/images/background.png") no-repeat center center fixed'
@@ -11,8 +12,18 @@ export default class App {
     let content = document.getElementById('content')
     content.append()
 
+    //instantiate dashboard
     let dashboard = new Dashboard()
-    content.append(dashboard.getContent())
+
+    //call getData to execute Promise
+    //when Promise is fulfilled, execute .then
+    //.then will pass me (bring back) data
+    dashboard.getData().then((data) => {
+      //pass data to getContent of dashboard
+      //append result of getContent to main content
+      content.append(dashboard.getContent(data))
+        dashboard.annimate()
+    })
   }
 
 }
