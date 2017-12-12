@@ -18,7 +18,10 @@ app.get('/characters', (request, response) => {
       }
     ])
 })
-
+//test with curl:
+//curl http://localhost:3000/characters
+//or for pretty format use:
+//curl http://localhost:3000/characters | python -m json.tool
 
 // Start Express server
 let server = app.listen(app.get('port'), function() {
