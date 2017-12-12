@@ -10,7 +10,7 @@ export default class App {
     document.body.style.backgroundAttachment = 'fixed'
 
     let content = document.getElementById('content')
-    content.append()
+    //content.append()
 
     //instantiate dashboard
     let dashboard = new Dashboard()
@@ -22,7 +22,7 @@ export default class App {
       //pass data to getContent of dashboard
       //append result of getContent to main content
       content.append(dashboard.getContent(data))
-        dashboard.annimate()
+      dashboard.animate()
     })
   }
 
