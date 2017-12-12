@@ -1,5 +1,5 @@
 //let api = require('marvel-api')
-//let MongoClient = require('mongodb').MongoClient
+let MongoClient = require('mongodb').MongoClient
 
 export default class Marvel {
   /*
@@ -63,6 +63,7 @@ export default class Marvel {
           if (err) throw err
           //console.log(result)
           //callback && callback(result)
+          callback(result)
           console.log(JSON.stringify(result, null, 2))
           //callback(JSON.stringify(result, null, 2))
           db.close()

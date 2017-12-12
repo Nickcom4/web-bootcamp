@@ -24,7 +24,7 @@ class Marvel {
           name        : character.name,
           description : character.description,
           thumbnail   : character.thumbnail.path + "." + character.thumbnail.extension,
-          link        : character.resourceURI
+          //link        : character.urls
           }
         //console.log(obj)
         arrayCharacters.push(obj)

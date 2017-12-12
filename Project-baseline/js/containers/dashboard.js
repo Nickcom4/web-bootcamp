@@ -1,8 +1,8 @@
 import Card from '../components/card'
 //import Marvel from '../components/marvelClass'
-import Marvel from '../components/marvel'
+import Marvel from '../components/marvel2'
 
-let MongoClient = require('mongodb').MongoClient
+//let MongoClient = require('mongodb').MongoClient
 //MongoClient mongoClient = new MongoClient()
 
 
@@ -46,9 +46,14 @@ export default class Dashboard {
     //content.append(title)
     container.appendChild(title)
 
+    let characterName = 'Hulk'
+    let marvel = new Marvel()
     let card1 = new Card({
-      name       :'Hulk',
-      description:'description placeholder',
+      name       : marvel.getMongoData(characterName).name,
+      description: marvel.getData(characterName).description,
+      thumbnail  : marvel.getData(characterName).thumbnail
+    })
+//      description:'description placeholder',
 //      description : () => {
 //        description.append(this.options.Description)
 //        return this.lookupCharacter(name).Description
@@ -58,8 +63,8 @@ export default class Dashboard {
 //      marvel.getCharacters(name)
 //        getData('hulk')
 //      },
-      image: 'image placeholder'
-    })
+//      image: 'image placeholder'
+//    )
 //    let dashboard = new Dashboard()
 //    content.append(dashboard.getContent())
     //let marvel = new Marvel()

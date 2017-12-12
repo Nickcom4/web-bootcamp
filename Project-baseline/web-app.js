@@ -9,7 +9,7 @@ app.set('port', process.env.PORT || process.env.VCAP_APP_PORT || 3000)
 let server = app.listen(app.get('port'), function() {
   console.log(`Express is running on port ${app.get('port')}`)
 })
-
+/*
 let MongoClient = require('mongodb').MongoClient
  
 // Connection URL
@@ -20,3 +20,4 @@ MongoClient.connect(url, (err, db) => {
  
 //  db.close()
 })
+*/
