@@ -66,7 +66,8 @@ export default class Card{
     //create hyperlink inside footer - use 'a' tag
     let cardLink = document.createElement('a')
     cardLink.href = this.options.link
-    cardLink.append(this.options.linkText)
+    //cardLink.append(this.options.linkText)
+    cardLink.append('Click for more info')
     cardLink.style.color = '#bbbbbb'
 
     cardFooter.append(cardLink)
