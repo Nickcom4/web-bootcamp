@@ -1,22 +1,20 @@
 let express = require('express')
 let app = express()
-//let MongoClient = require('mongodb').MongoClient
+let MongoClient = require('mongodb').MongoClient
 
 app.use('/', express.static('app'))
 
 app.get('/characters', (request, response) => {
-  //response.send('some data')
-  response.json(
-    [
-      {
-        name: 'This is server side',
-        description: 'Servant of The King Most High',
-        thumbnail: 'https://cdn.shopify.com/s/files/1/0387/7073/files/Tree-of-life-spring_large.jpg?18148057159891282181',
-        link: 'https://www.google.com',
-        linkText: 'Click here for more info'
-      }
-    ]
-    )
+  //reference: https://www.w3schools.com/nodejs/nodejs_mongodb_find.asp
+  MongoClient.connect('mongodb://localhost:27017/MarvelData',(err, db) => { 
+    if (err) throw err
+    db.collection("characters").find({}).toArray((err, result) => {
+      if (err) throw err
+      //console.log(result)
+      response.json(result)
+      db.close()
+    });
+  })
 })
 //test with curl:
 //curl http://localhost:3000/characters
